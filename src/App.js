@@ -1,18 +1,23 @@
 import React from 'react';
-import './App.css';
+import {
+    Switch,
+    Route
+} from "react-router-dom";
+import LandingPage from "./Components/Landingpage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-
-        <p>
-          plaan-b
-        </p>
-
-      </header>
-    </div>
-  );
+    return (
+        <div className="h-screen">
+            <Switch>
+                <Route path="/arst">
+                    <h1>Tere tulemast Arstile</h1>
+                </Route>
+                <Route path="/">
+                    <LandingPage/>
+                </Route>
+            </Switch>
+        </div>
+    );
 }
 
 export default App;
