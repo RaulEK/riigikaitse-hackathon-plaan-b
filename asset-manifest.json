@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/riigikaitse-hackathon-plaan-b/static/css/main.aeff0a1e.chunk.css",
+    "main.js": "/riigikaitse-hackathon-plaan-b/static/js/main.2dfeac0a.chunk.js",
+    "main.js.map": "/riigikaitse-hackathon-plaan-b/static/js/main.2dfeac0a.chunk.js.map",
+    "runtime-main.js": "/riigikaitse-hackathon-plaan-b/static/js/runtime-main.fb22f83a.js",
+    "runtime-main.js.map": "/riigikaitse-hackathon-plaan-b/static/js/runtime-main.fb22f83a.js.map",
+    "static/js/2.6163965d.chunk.js": "/riigikaitse-hackathon-plaan-b/static/js/2.6163965d.chunk.js",
+    "static/js/2.6163965d.chunk.js.map": "/riigikaitse-hackathon-plaan-b/static/js/2.6163965d.chunk.js.map",
+    "index.html": "/riigikaitse-hackathon-plaan-b/index.html",
+    "precache-manifest.730e6f15d68ce690edf784cae8ec16a4.js": "/riigikaitse-hackathon-plaan-b/precache-manifest.730e6f15d68ce690edf784cae8ec16a4.js",
+    "service-worker.js": "/riigikaitse-hackathon-plaan-b/service-worker.js",
+    "static/css/main.aeff0a1e.chunk.css.map": "/riigikaitse-hackathon-plaan-b/static/css/main.aeff0a1e.chunk.css.map",
+    "static/js/2.6163965d.chunk.js.LICENSE.txt": "/riigikaitse-hackathon-plaan-b/static/js/2.6163965d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fb22f83a.js",
+    "static/js/2.6163965d.chunk.js",
+    "static/css/main.aeff0a1e.chunk.css",
+    "static/js/main.2dfeac0a.chunk.js"
+  ]
+}
