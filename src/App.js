@@ -4,13 +4,16 @@ import {
     Route
 } from "react-router-dom";
 import LandingPage from "./Components/Landingpage";
+import Doctor from "./Containers/Doctor";
+import Header from "./Components/Header";
 
 function App() {
     return (
         <div className="h-screen">
+            <Header/>
             <Switch>
                 <Route path="/arst">
-                    <h1>Tere tulemast Arstile</h1>
+                    <Doctor/>
                 </Route>
                 <Route path="/">
                     <LandingPage/>
