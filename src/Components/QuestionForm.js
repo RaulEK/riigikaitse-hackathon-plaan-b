@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 
-const buttonStyle = "rounded bg-green-200 w-1/4 h-32 m-8 flex justify-center items-center rounded shadow-lg";
+const buttonStyle = "rounded bg-white w-1/4 h-32 m-8 flex justify-center items-center rounded shadow-lg hover:bg-gray-100 text-2xl";
 const QuestionForm = () => {
 
     const [questionIndex, setQuestionIndex] = useState(0);
@@ -25,8 +25,8 @@ const QuestionForm = () => {
         return (
             <div className="w-full h-auto flex justify-center items-center flex-col">
                 <h1>{questions[questionIndex].question}</h1>
-                <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/"><p>Terviseprobleem pole tõsine - liigu tagasi avalehele</p></Link>
-                <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/form"><p>Vajan arsti abi - täida külastuseks küsimustik</p></Link>
+                <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/"><p>Probleem pole tõsine - liigu pealehele</p></Link>
+                <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/form"><p>Vajan arsti abi - broneeri külastus</p></Link>
             </div>
         )
     }
