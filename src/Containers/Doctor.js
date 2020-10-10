@@ -11,6 +11,8 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import {Link} from "react-router-dom";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {CONTENTSTYLE, PRIORITIES} from "../constans";
 
 const Accordion = withStyles({
     root: {
@@ -87,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const summaryElements = "w-1/4 text-center";
-const displayButtonStyles = "text-xl py-1  border rounded bg-blue-400 text-white h-full w-32 display justify-center ml-4";
+const displayButtonStyles = "text-xl py-1 rounded bg-blue-400 text-white h-full w-32 display justify-center ml-4 shadow-lg hover:bg-blue-500";
 
 const calculateStatistics = (data) => {
     let result = {};
@@ -112,33 +114,34 @@ export default function CustomizedAccordions() {
     const classes = useStyles();
 
     return (
-        <div className="lg:px-32 xl:px-64 flex justify-center px-8">
+        <div className={ CONTENTSTYLE }>
             <div className="w-4/5 md:w-full">
-                <div className="controls w-full h-14 mb-8 flex justify-between">
-                    <DoctorSummary summary={summary}/>
-                    <div className="ButtonController">
-                        <button className={displayButtonStyles}>Uued</button>
-                        <button className={displayButtonStyles}>Vaadatud</button>
-                    </div>
+            <div className="controls w-full h-14 mb-8 flex justify-between">
+                <DoctorSummary summary={summary}/>
+                <div className="ButtonController">
+                    <button className={displayButtonStyles}>Uued</button>
+                    <button className={displayButtonStyles}>Vaadatud</button>
                 </div>
-                <Accordion>
-                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                        <div className="flex w-full">
-                            <p className={summaryElements}>Nimi</p>
-                            <p className={summaryElements}>Sümptom</p>
-                            <p className={summaryElements}>Esitamisest möödas</p>
-                            <p className={summaryElements}>Prioriteet</p>
-                        </div>
-                    </AccordionSummary>
-                </Accordion>
-                {mockData.map((problem, idx) => {
-                    return (
-                        <Accordion square expanded={expanded === idx} onChange={handleChange(idx)} key={problem.nimi}>
-                            <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+            </div>
+            <Accordion>
+                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                    <div className="flex w-full">
+                        <p className={summaryElements}>Nimi</p>
+                        <p className={summaryElements}>Sümptom</p>
+                        <p className={summaryElements}>Esitamisest möödas</p>
+                        <p className={summaryElements}>Prioriteet</p>
+                    </div>
+                </AccordionSummary>
+            </Accordion>
+                <div className="shadow-md">
+            {mockData.map((problem, idx) => {
+                return (
+                    <Accordion square expanded={expanded === idx} onChange={handleChange(idx)} key={problem.nimi}>
+                        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" expandIcon={<ExpandMoreIcon />}>
                                 <p className={summaryElements}>{problem.nimi}</p>
                                 <p className={summaryElements}>{problem.sümptom}</p>
                                 <p className={summaryElements}>3 päeva</p>
-                                <p className={summaryElements}>{problem.prioriteediSoovitus}</p>
+                                <p className={summaryElements}>{PRIORITIES[+problem.prioriteediSoovitus]}</p>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div>
@@ -181,11 +184,12 @@ export default function CustomizedAccordions() {
                                             <button className={displayButtonStyles}>Kinnita</button>
                                         </div>
                                     </div>
-                                </div>
-                            </AccordionDetails>
-                        </Accordion>
-                    )
-                })}
+                            </div>
+                        </AccordionDetails>
+                    </Accordion>
+                )
+            })}
+                </div>
             </div>
         </div>
     );
