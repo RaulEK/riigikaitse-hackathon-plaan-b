@@ -4,6 +4,7 @@ import LandingPage from "./Components/Landingpage";
 import Doctor from "./Containers/Doctor";
 import Header from "./Components/Header";
 import ProblemForm from "./Components/ProblemForm";
+import CalendarView from "./Components/CalendarView";
 
 function App() {
     return (
@@ -13,6 +14,9 @@ function App() {
                 <Switch>
                     <Route path="/form">
                         <ProblemForm/>
+                    </Route>
+                    <Route path="/kalender">
+                        <CalendarView/>
                     </Route>
                     <Route path="/arst">
                         <Doctor/>
