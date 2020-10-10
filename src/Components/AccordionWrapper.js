@@ -73,7 +73,6 @@ const renderPriorityPicker = (classes, problem) => {
                     <MenuItem value={0}>{PRIORITIES[0]}</MenuItem>
                     <MenuItem value={1}>{PRIORITIES[1]}</MenuItem>
                     <MenuItem value={2}>{PRIORITIES[2]}</MenuItem>
-                    <MenuItem value={3}>{PRIORITIES[3]}</MenuItem>
                 </Select>
             </FormControl>
         </div>

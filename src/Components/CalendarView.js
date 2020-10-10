@@ -3,7 +3,8 @@ import moment from 'moment'
 import {Calendar, momentLocalizer} from 'react-big-calendar'
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import {CONTENTSTYLE} from "../constans";
-import Events from "./Events";
+import { useHistory } from "react-router-dom";
+import {kava} from "./Events";
 const localizer = momentLocalizer(moment);
 
 
@@ -19,8 +20,8 @@ const defaultEvent = {
     ]
 };
 
-const CalendarView = () => {
-    const [events, setEvents] = useState(defaultEvent);
+const CalendarView = (props) => {
+    const { location } = useHistory();
     return (
         <div className={CONTENTSTYLE + " flex-col"}>
             <div className="shadow-md">
@@ -29,7 +30,7 @@ const CalendarView = () => {
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 700 }}
-                events={Events}
+                events={(location.state && location.state.eventData) || kava}
                 views={['month', 'day', 'agenda']}
                 messages={{
                     month: 'Kuu',

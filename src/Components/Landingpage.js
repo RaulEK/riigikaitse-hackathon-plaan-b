@@ -3,13 +3,10 @@ import {Link} from "react-router-dom";
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import TodayOutlinedIcon from '@material-ui/icons/TodayOutlined';
 import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalendarOutlined';
+import {timetable} from "./Events";
 
 const buttonStyle = "rounded bg-white w-3/5 h-32 m-8 flex justify-center items-center rounded shadow-lg hover:bg-gray-100 text-2xl lg:w-2/5";
-const mockEvent = {
-    'title': 'Õppus',
-    'start': new Date(2020, 9, 12, 15, 0, 0),
-    'end': new Date(2020, 9, 12, 17, 0, 0)
-};
+
 const LandingPage = () => {
 
     return (
@@ -20,7 +17,10 @@ const LandingPage = () => {
                       to="/question"><EditOutlinedIcon style={{fontSize: 40, position: "absolute", left: "30px"}}/>
                     <p>Loo taotlus</p></Link>
                 <Link style={{borderRadius: "25px", position: "relative"}} className={buttonStyle}
-                      to="/kalender"><TodayOutlinedIcon style={{fontSize: 40, position: "absolute", left: "30px"}}/>
+                      to={{
+                          pathname: "/kalender",
+                          state: { eventData: timetable}
+                      }}><TodayOutlinedIcon style={{fontSize: 40, position: "absolute", left: "30px"}}/>
                     <p>Vaata kalendrit</p></Link>
                 <Link style={{borderRadius: "25px", position: "relative"}} className={buttonStyle}
                       to="/arst"><PermContactCalendarOutlinedIcon

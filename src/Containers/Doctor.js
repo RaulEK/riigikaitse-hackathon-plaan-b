@@ -7,6 +7,8 @@ import DoctorSummary from "../Components/DoctorSummary";
 import {CONTENTSTYLE, displayButtonStyles, summaryElements} from "../constans";
 import AccordionWrapper from "../Components/AccordionWrapper";
 import axios from 'axios';
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 const Accordion = withStyles({
     root: {
@@ -92,17 +94,19 @@ export default function CustomizedAccordions() {
         axios.get('https://plaanb.azurewebsites.net/problems').then(res => {
             const response = res.data;
             if (response.length > 0) {
-                console.log(response)
-                setProblemData(response)
-                setShowData(response.filter(problem => problem.approvedPriorityPrediction === 0))
+                setTimeout(() => {
+                    setProblemData(response)
+                    setShowData(response.filter(problem => problem.approvedPriorityPrediction === 0))
+                }, 1000)
             }
         }).catch((err) => console.log(err))
 
     },[]);
 
-    console.log(problemData)
     if(!problemData || !showData) { return (
-        <div/>
+        <div className="w-full flex justify-center mt-64 ">
+            <Loader type="TailSpin" color="#00BFFF" height={80} width={80}/>
+        </div>
     ) }
 
     const summary = calculateStatistics(mockData);
