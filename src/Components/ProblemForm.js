@@ -8,6 +8,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import withStyles from "@material-ui/core/styles/withStyles";
 import moment from 'moment';
 import {CONTENTSTYLE} from "../constans";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,7 +38,24 @@ const ProblemForm = () => {
     const [showCalendar, setShowCalendar] = useState(false);
 
     const handleSend = () => {
-        console.log(name, symptoms, description, skipDate)
+
+        if (skipDate === null) {
+            return;
+        }
+
+        const data = {
+            createdTimeStamp: skipDate.getTime() / 1000,
+            symptoms: symptoms,
+            reason: description,
+            name: name
+        }
+        axios.post('https://plaanb.azurewebsites.net/problem', data)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            }, (error) => {
+                console.log(error);
+            });
     }
 
     const handleSkipDateSelection = (selectedDate) => {
@@ -62,12 +80,14 @@ const ProblemForm = () => {
                 <div className="mb-3 mt-3 w-full">
                     <TextField onChange={(event) => setSymptoms(event.target.value)}
                                id="standard-basic" label="Mis on sümptomid?"
-                               fullWidth multiline value={symptoms} rows={4} variant="outlined" required inputProps={{style: {fontSize: 20}}}/>
+                               fullWidth multiline value={symptoms} rows={4} variant="outlined" required
+                               inputProps={{style: {fontSize: 20}}}/>
                 </div>
                 <div className="mb-3 mt-3 w-full">
                     <TextField onChange={(event) => setDescription(event.target.value)}
                                id="standard-basic" label="Miks tervisehäda tekkis?" fullWidth
-                               multiline value={description} rows={4} variant="outlined" required inputProps={{style: {fontSize: 20}}}/>
+                               multiline value={description} rows={4} variant="outlined" required
+                               inputProps={{style: {fontSize: 20}}}/>
                 </div>
 
                 <div className="flex justify-around w-full h-1/2 mt-12 items-start">
@@ -90,7 +110,8 @@ const ProblemForm = () => {
                             : <button onClick={() => setSkipDate(null)}>Tühista valik</button>}
                     </div>
 
-                    <button onClick={() => handleSend()} className="text-md lg:text-xl py-1 rounded bg-blue-400 text-white h-2/3 w-40 lg:w-26 display justify-center ml-4 shadow-lg hover:bg-blue-500">
+                    <button onClick={() => handleSend()}
+                            className="text-md lg:text-xl py-1 rounded bg-blue-400 text-white h-2/3 w-40 lg:w-26 display justify-center ml-4 shadow-lg hover:bg-blue-500">
                         Saada
                     </button>
                 </div>
