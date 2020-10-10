@@ -105,15 +105,15 @@ const AccordionWrapper = ({problem, idx}) => {
                             <h1 className="font-bold">Andmed Raportist:</h1>
                             <div className="flex"><p className={leftTextClasses}>Sõdur:</p><p className={rightTextClasses}>{problem.nimi}</p></div>
                             <div className="flex"><p className={leftTextClasses}>Sümptomid::</p><p className={rightTextClasses}>{problem.sümptom}</p></div>
-                            <div className="flex"><p className={leftTextClasses}>Sümptomi algus:</p><p className={rightTextClasses}>{problem.nimi}</p></div>
-                            <div className="flex"><p className={leftTextClasses}>Lisamise aeg:</p><p className={rightTextClasses}>{problem.nimi}</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Sümptomi algus:</p><p className={rightTextClasses}>01/10/2020</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Lisamise aeg:</p><p className={rightTextClasses}>10/10/2020</p></div>
                         </div>
                         <div className="lg:w-1/3  w-4/5 flex justify-center flex-col border-t py-4">
                             <h1 className="font-bold">Andmed digiloost:</h1>
-                            <div className="flex"><p className={leftTextClasses}>Sõdur:</p><p className={rightTextClasses}>{problem.nimi}</p></div>
-                            <div className="flex"><p className={leftTextClasses}>Sümptomid::</p><p className={rightTextClasses}>{problem.sümptom}</p></div>
-                            <div className="flex"><p className={leftTextClasses}>Sümptomi algus:</p><p className={rightTextClasses}>{problem.nimi}</p></div>
-                            <div className="flex"><p className={leftTextClasses}>Lisamise aeg:</p><p className={rightTextClasses}>{problem.nimi}</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Vanus:</p><p className={rightTextClasses}>21</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Pikkus:</p><p className={rightTextClasses}>187cm</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Allergiad</p><p className={rightTextClasses}>H20, Pähklid, Loomad</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Operatsioonid</p><p className={rightTextClasses}>Mandlid eemaldatud, Pimesool eemaldatud</p></div>
                         </div>
                         <div className="lg:w-1/3  w-4/5 flex justify-center flex-col border-t py-4">
                             <h1 className="font-bold">Varasemad raportid:</h1>
