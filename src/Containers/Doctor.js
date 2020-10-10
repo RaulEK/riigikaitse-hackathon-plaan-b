@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
@@ -6,6 +6,7 @@ import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import DoctorSummary from "../Components/DoctorSummary";
 import {CONTENTSTYLE, displayButtonStyles, summaryElements} from "../constans";
 import AccordionWrapper from "../Components/AccordionWrapper";
+import axios from 'axios';
 
 const Accordion = withStyles({
     root: {
@@ -84,8 +85,27 @@ const calculateStatistics = (data) => {
 };
 
 export default function CustomizedAccordions() {
-    const summary = calculateStatistics(mockData);
+    const [problemData, setProblemData] = useState(null);
+    const [showData, setShowData] = useState(null);
+    useEffect(() => {
+        console.log("I ran")
+        axios.get('https://plaanb.azurewebsites.net/problems').then(res => {
+            const response = res.data;
+            if (response.length > 0) {
+                console.log(response)
+                setProblemData(response)
+                setShowData(response.filter(problem => problem.approvedPriorityPrediction === 0))
+            }
+        }).catch((err) => console.log(err))
 
+    },[]);
+
+    console.log(problemData)
+    if(!problemData || !showData) { return (
+        <div/>
+    ) }
+
+    const summary = calculateStatistics(mockData);
 
     return (
         <div className={ CONTENTSTYLE }>
@@ -93,8 +113,8 @@ export default function CustomizedAccordions() {
                 <div className="controls w-full h-14 mb-8 flex justify-between">
                     <DoctorSummary summary={summary}/>
                     <div className="ButtonController">
-                        <button className={displayButtonStyles}>Uued</button>
-                        <button className={displayButtonStyles}>Vaadatud</button>
+                        <button onClick={() => setShowData(problemData.filter(problem => problem.approvedPriorityPrediction === 0))} className={displayButtonStyles}>Uued</button>
+                        <button onClick={() => setShowData(problemData.filter(problem => problem.approvedPriorityPrediction === 1))} className={displayButtonStyles}>Vaadatud</button>
                     </div>
                 </div>
                 <Accordion>
@@ -109,7 +129,7 @@ export default function CustomizedAccordions() {
                     </AccordionSummary>
                 </Accordion>
                 <div className="shadow-md">
-                    {mockData.map((problem, idx) => {
+                    {showData.map((problem, idx) => {
                         return (
                             <AccordionWrapper problem={problem} idx={idx}/>
                         )

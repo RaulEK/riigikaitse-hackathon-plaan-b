@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const buttonStyle = "rounded bg-white w-1/4 h-32 m-8 flex justify-center items-center rounded shadow-lg hover:bg-gray-100 text-2xl";
 const QuestionForm = () => {
-
+    let history = useHistory();
     const [questionIndex, setQuestionIndex] = useState(0);
 
     const questions = {
@@ -45,7 +46,7 @@ const QuestionForm = () => {
                         className={buttonStyle}><p>{questions[questionIndex].answers[0]}</p></button>
                 <button style={{borderRadius: "25px"}} onClick={() => setQuestionIndex(questionIndex + 1)}
                         className={buttonStyle}><p>{questions[questionIndex].answers[1]}</p></button>
-                <button style={{borderRadius: "25px"}} onClick={() => setQuestionIndex(questionIndex + 1)}
+                <button style={{borderRadius: "25px"}} onClick={() => history.push('/form')}
                         className={buttonStyle}><p>{questions[questionIndex].answers[2]}</p></button>
             </div>
 

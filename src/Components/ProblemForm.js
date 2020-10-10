@@ -10,6 +10,8 @@ import moment from 'moment';
 import {CONTENTSTYLE} from "../constans";
 import axios from "axios";
 import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalendarOutlined';
+import { useHistory } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,7 +33,7 @@ const flexboxContainerStyle = "flex pt-10 px-16 flex-col items-center content-ce
 
 const ProblemForm = () => {
     const classes = useStyles();
-
+    let history = useHistory();
     const [name, setName] = useState("");
     const [symptoms, setSymptoms] = useState("");
     const [description, setDescription] = useState("");
@@ -54,6 +56,7 @@ const ProblemForm = () => {
             .then(res => {
                 console.log(res);
                 console.log(res.data);
+                history.push("/");
             }, (error) => {
                 console.log(error);
             });
