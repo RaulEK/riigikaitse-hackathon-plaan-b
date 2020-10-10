@@ -8,7 +8,7 @@ const LandingPage = () => {
         <div className="w-full h-auto flex justify-center items-center flex-col">
             <h1>Tere tulemas Plan-B süsteemi!</h1>
             <div className="w-full flex justify-center flex-col items-center">
-                <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/form"><p>Sisesta avaldus</p></Link>
+                <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/question"><p>Sisesta avaldus</p></Link>
                 <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/kalender"><p>Vaata kalendrit</p></Link>
                 <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/arst"><p>Tervisemurede raportid</p></Link>
             </div>
