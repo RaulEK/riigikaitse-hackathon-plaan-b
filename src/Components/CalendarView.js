@@ -3,6 +3,7 @@ import moment from 'moment'
 import {Calendar, momentLocalizer} from 'react-big-calendar'
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Events from "./Events";
+import {CONTENTSTYLE} from "../constans";
 const localizer = momentLocalizer(moment);
 
 const defaultEvent = {
@@ -20,13 +21,13 @@ const defaultEvent = {
 const CalendarView = () => {
     const [events, setEvents] = useState(defaultEvent);
     return (
-        <div>
-            <h1 className="font-bold text-dark text-2xl">Mart Mets</h1>
+        <div className={CONTENTSTYLE + " flex-col"}>
+            <div className="shadow-md">
             <Calendar
                 localizer={localizer}
                 startAccessor="start"
                 endAccessor="end"
-                style={{ height: 500 }}
+                style={{ height: 700 }}
                 events={Events}
                 views={['month', 'day', 'agenda']}
                 messages={{
@@ -38,6 +39,7 @@ const CalendarView = () => {
                     previous: '<'
                 }}
             />
+            </div>
         </div>
     )
 };

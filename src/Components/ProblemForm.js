@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 import withStyles from "@material-ui/core/styles/withStyles";
 import moment from 'moment';
+import {CONTENTSTYLE} from "../constans";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,7 +47,7 @@ const ProblemForm = () => {
     }
 
     return (
-        <div className={backgroundStyle}>
+        <div className={CONTENTSTYLE}>
             <div className={flexboxContainerStyle}>
                 <h1 className="mt-10">Taotlus</h1>
 

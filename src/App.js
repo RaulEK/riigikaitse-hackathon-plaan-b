@@ -28,6 +28,9 @@ function App() {
                     <Route path="/">
                         <LandingPage/>
                     </Route>
+                    <Route path="/kalender">
+                        <CalendarView/>
+                    </Route>
                 </Switch>
             </div>
         </div>
