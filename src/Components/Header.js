@@ -1,8 +1,10 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 import LocalHospitalOutlinedIcon from '@material-ui/icons/LocalHospitalOutlined';
+import {useLocation} from 'react-router-dom'
 
 const Header = () => {
+    const location = useLocation();
     return (
         <div className="absolute top-0 h-24 w-full bg-blue-400 flex justify-between px-16 items-center shadow-xl"
              id="header">
@@ -12,9 +14,8 @@ const Header = () => {
                     <h1 className="font-bold text-white text-5xl">MEDKIOSK</h1>
                 </div>
             </Link>
-
-            <Link className="font-bold text-white text-2xl hover:text-gray-300 underline" to="/">Tagasi
-                pealehele </Link>
+            {location.pathname !== "/" && <Link className="font-bold text-white text-2xl hover:text-gray-300 underline" to="/">Tagasi
+                pealehele </Link>}
         </div>
     )
 };

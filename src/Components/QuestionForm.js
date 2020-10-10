@@ -24,7 +24,7 @@ const QuestionForm = () => {
     if (questionIndex === 2) {
         return (
             <div className="w-full h-auto flex justify-center items-center flex-col">
-                <h1>{questions[questionIndex].question}</h1>
+                <h1 className="font-bold text-gray-800 text-2xl p-8">{questions[questionIndex].question}</h1>
                 <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/"><p>Probleem pole tõsine - liigu pealehele</p></Link>
                 <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/form"><p>Vajan arsti abi - broneeri külastus</p></Link>
             </div>
@@ -33,7 +33,7 @@ const QuestionForm = () => {
 
     return (
         <div className="w-full h-auto flex justify-center items-center flex-col">
-            <h1>{questions[questionIndex].question}</h1>
+            <h1 className="font-bold text-gray-800 text-3xl p-8">{questions[questionIndex].question}</h1>
             <div className="w-full flex justify-center flex-col items-center">
                 <button style={{borderRadius: "25px"}} onClick={() => setQuestionIndex(questionIndex + 1)}
                         className={buttonStyle}><p>{questions[questionIndex].answers[0]}</p></button>

@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import moment from 'moment'
 import {Calendar, momentLocalizer} from 'react-big-calendar'
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import Events from "./Events";
 import {CONTENTSTYLE} from "../constans";
+import Events from "./Events";
 const localizer = momentLocalizer(moment);
+
 
 const defaultEvent = {
     events: [

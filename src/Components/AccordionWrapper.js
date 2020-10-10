@@ -10,6 +10,7 @@ import {COLORS, displayButtonStyles, PRIORITIES, summaryElements} from "../const
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
+import Events from "./Events";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -38,7 +39,9 @@ const leftTextClasses = "text-gray-700 w-1/3 text-right pr-4";
 const rightTextClasses = "text-black w-1/2";
 
 const renderTimePicker = (classes) => {
-    if (!classes) { return; }
+    if (!classes) {
+        return;
+    }
     return (
         <div>
             <FormControl className={classes.formControl}>
@@ -80,16 +83,20 @@ const renderControlPanel = (classes, problem) => {
     return (
         <div className="flex justify-between mt-8">
             <div className="ButtonController flex">
-                <button className="text-md lg:text-xl py-1 rounded bg-blue-400 text-white h-full w-24 lg:w-32 display justify-center shadow-lg hover:bg-blue-500">Vaata digilugu</button>
-                <button className={displayButtonStyles}><Link to="/kalender">Vaata tunniplaan</Link></button>
+                <button
+                    className="text-md lg:text-xl py-1 rounded bg-blue-400 text-white h-full w-24 lg:w-32 display justify-center shadow-lg hover:bg-blue-500">Vaata
+                    digilugu
+                </button>
+                <button className={displayButtonStyles}><Link to="/kalender">Vaata
+                    tunniplaan</Link></button>
             </div>
             <div className="flex">
-            { renderTimePicker(classes) }
-            { renderPriorityPicker(classes, problem)}
+                {renderTimePicker(classes)}
+                {renderPriorityPicker(classes, problem)}
 
-            <div className="ButtonController">
-                <button className={displayButtonStyles}>Kinnita</button>
-            </div>
+                <div className="ButtonController">
+                    <button className={displayButtonStyles}>Kinnita</button>
+                </div>
             </div>
         </div>
     )
@@ -117,26 +124,41 @@ const AccordionWrapper = ({problem, idx}) => {
                     <div className="flex flex-col lg:flex-row items-center lg:items-baseline">
                         <div className="lg:w-1/3  w-4/5 flex justify-center flex-col border-t py-4">
                             <h1 className="font-bold">Andmed Raportist:</h1>
-                            <div className="flex"><p className={leftTextClasses}>Sõdur:</p><p className={rightTextClasses}>{problem.nimi}</p></div>
-                            <div className="flex"><p className={leftTextClasses}>Sümptomid::</p><p className={rightTextClasses}>{problem.sümptom}</p></div>
-                            <div className="flex"><p className={leftTextClasses}>Sümptomi algus:</p><p className={rightTextClasses}>01/10/2020</p></div>
-                            <div className="flex"><p className={leftTextClasses}>Lisamise aeg:</p><p className={rightTextClasses}>10/10/2020</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Sõdur:</p><p
+                                className={rightTextClasses}>{problem.nimi}</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Sümptomid::</p><p
+                                className={rightTextClasses}>{problem.sümptom}</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Sümptomi algus:</p><p
+                                className={rightTextClasses}>01/10/2020</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Lisamise aeg:</p><p
+                                className={rightTextClasses}>10/10/2020</p></div>
                         </div>
                         <div className="lg:w-1/3  w-4/5 flex justify-center flex-col border-t py-4">
                             <h1 className="font-bold">Andmed digiloost:</h1>
-                            <div className="flex"><p className={leftTextClasses}>Vanus:</p><p className={rightTextClasses}>21</p></div>
-                            <div className="flex"><p className={leftTextClasses}>Pikkus:</p><p className={rightTextClasses}>187cm</p></div>
-                            <div className="flex"><p className={leftTextClasses}>Allergiad</p><p className={rightTextClasses}>H20, Pähklid, Loomad</p></div>
-                            <div className="flex"><p className={leftTextClasses}>Operatsioonid</p><p className={rightTextClasses}>Mandlid eemaldatud, Pimesool eemaldatud</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Vanus:</p><p
+                                className={rightTextClasses}>21</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Pikkus:</p><p
+                                className={rightTextClasses}>187cm</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Allergiad</p><p
+                                className={rightTextClasses}>H20, Pähklid, Loomad</p></div>
+                            <div className="flex"><p className={leftTextClasses}>Operatsioonid</p><p
+                                className={rightTextClasses}>Mandlid eemaldatud, Pimesool eemaldatud</p></div>
                         </div>
                         <div className="lg:w-1/3  w-4/5 flex justify-center flex-col border-t py-4">
                             <h1 className="font-bold">Varasemad raportid:</h1>
-                            <div className="flex"><p className={leftTextClasses}>01/02/2020</p><p className={rightTextClasses}>Vill tallal</p></div>
-                            <div className="flex"><p className={leftTextClasses}>05/03/2020</p><p className={rightTextClasses}>Tald mädaneb</p></div>
+                            <div className="flex"><p className={leftTextClasses}>01/02/2020</p><p
+                                className={rightTextClasses}>Vill tallal</p></div>
+                            <div className="flex"><p className={leftTextClasses}>05/03/2020</p><p
+                                className={rightTextClasses}>Tald mädaneb</p></div>
                         </div>
                     </div>
-                    <div className="border-t"><p>Kaebuse kirjeldus:</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p></div>
-                    { renderControlPanel(classes, problem) }
+                    <div className="border-t"><p>Kaebuse kirjeldus:</p><p>Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                        mollit anim id est laborum</p></div>
+                    {renderControlPanel(classes, problem)}
                 </div>
             </AccordionDetails>
         </Accordion>
