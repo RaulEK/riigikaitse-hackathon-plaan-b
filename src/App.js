@@ -12,17 +12,19 @@ function App() {
     return (
         <div className="h-screen">
             <Header/>
-            <Switch>
-                <Route path="/form">
-                    <ProblemForm/>
-                </Route>
-                <Route path="/arst">
-                    <Doctor/>
-                </Route>
-                <Route path="/">
-                    <LandingPage/>
-                </Route>
-            </Switch>
+            <div className="pt-24 h-full">
+                <Switch>
+                    <Route path="/form">
+                        <ProblemForm/>
+                    </Route>
+                    <Route path="/arst">
+                        <Doctor/>
+                    </Route>
+                    <Route path="/">
+                        <LandingPage/>
+                    </Route>
+                </Switch>
+            </div>
         </div>
     );
 }
