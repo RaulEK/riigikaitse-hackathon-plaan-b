@@ -7,7 +7,7 @@ import ProblemForm from "./Components/ProblemForm";
 
 function App() {
     return (
-        <div className="">
+        <div className="h-screen">
             <Header/>
             <div className="pt-24 h-full">
                 <Switch>

@@ -7,6 +7,7 @@ import '../styles/index.scss';
 import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 import withStyles from "@material-ui/core/styles/withStyles";
+import moment from 'moment';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -66,12 +67,12 @@ const ProblemForm = () => {
                         <TextField
                             onClick={() => setShowCalendar(!showCalendar)}
                             id="standard-read-only-input"
-                            value={skipDate === null ? "valimata" : skipDate.toLocaleString().split(',')[0]}
+                            value={skipDate === null ? "valimata" : moment(skipDate).format("DD/MM/YYYY")}
                             InputProps={{
                                 readOnly: true,
                             }}
                         />
-                        {showCalendar ? <Calendar onChange={(date) => handleSkipDateSelection(date)} value={skipDate} locale="ISO 3166"/>
+                        {showCalendar ? <Calendar onChange={(date) => handleSkipDateSelection(date)} value={skipDate} locale="et-EE"/>
                             : <button onClick={() => setSkipDate(null)}>Tühista valik</button>}
                     </div>
 
