@@ -12,7 +12,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import {Link} from "react-router-dom";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import {CONTENTSTYLE, PRIORITIES} from "../constans";
+import {CONTENTSTYLE, PRIORITIES, COLORS} from "../constans";
 
 const Accordion = withStyles({
     root: {
@@ -77,15 +77,19 @@ const mockData = [
 ]
 
 const useStyles = makeStyles((theme) => ({
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 200,
+    root: {
+        width: '100%',
     },
-    selectEmpty: {
-        marginTop: theme.spacing(2),
+    heading: {
+        fontSize: theme.typography.pxToRem(15),
+        flexBasis: '33.33%',
+        flexShrink: 0,
+    },
+    secondaryHeading: {
+        fontSize: theme.typography.pxToRem(15),
+        color: theme.palette.text.secondary,
     },
 }));
-
 
 
 const summaryElements = "w-1/4 text-center";
@@ -114,81 +118,88 @@ export default function CustomizedAccordions() {
     const classes = useStyles();
 
     return (
-        <div className={ CONTENTSTYLE }>
+        <div className={CONTENTSTYLE}>
             <div className="w-4/5 md:w-full">
-            <div className="controls w-full h-14 mb-8 flex justify-between">
-                <DoctorSummary summary={summary}/>
-                <div className="ButtonController">
-                    <button className={displayButtonStyles}>Uued</button>
-                    <button className={displayButtonStyles}>Vaadatud</button>
-                </div>
-            </div>
-            <Accordion>
-                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                    <div className="flex w-full">
-                        <p className={summaryElements}>Nimi</p>
-                        <p className={summaryElements}>Sümptom</p>
-                        <p className={summaryElements}>Esitamisest möödas</p>
-                        <p className={summaryElements}>Prioriteet</p>
+                <div className="controls w-full h-14 mb-8 flex justify-between">
+                    <DoctorSummary summary={summary}/>
+                    <div className="ButtonController">
+                        <button className={displayButtonStyles}>Uued</button>
+                        <button className={displayButtonStyles}>Vaadatud</button>
                     </div>
-                </AccordionSummary>
-            </Accordion>
+                </div>
+                <Accordion>
+                    <AccordionSummary style={{backgroundColor: "rgb(142 200 243)", fontWeight: "bold"}}
+                                      aria-controls="panel1d-content" id="panel1d-header">
+                        <div className="flex w-full">
+                            <p className={summaryElements}>Nimi</p>
+                            <p className={summaryElements}>Sümptom</p>
+                            <p className={summaryElements}>Esitamisest möödas</p>
+                            <p className={summaryElements}>Prioriteet</p>
+                        </div>
+                    </AccordionSummary>
+                </Accordion>
                 <div className="shadow-md">
-            {mockData.map((problem, idx) => {
-                return (
-                    <Accordion square expanded={expanded === idx} onChange={handleChange(idx)} key={problem.nimi}>
-                        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" expandIcon={<ExpandMoreIcon />}>
-                                <p className={summaryElements}>{problem.nimi}</p>
-                                <p className={summaryElements}>{problem.sümptom}</p>
-                                <p className={summaryElements}>3 päeva</p>
-                                <p className={summaryElements}>{PRIORITIES[+problem.prioriteediSoovitus]}</p>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <div>
-                                    Sõduri kaebus:
-                                    {problem.põhjus}
+                    {mockData.map((problem, idx) => {
+                        return (
+                            <Accordion square expanded={expanded === idx} onChange={handleChange(idx)}
+                                       key={problem.nimi}>
+                                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header"
+                                                  expandIcon={<ExpandMoreIcon/>}>
+                                    <p className={summaryElements}>{problem.nimi}</p>
+                                    <p className={summaryElements}>{problem.sümptom}</p>
+                                    <p className={summaryElements}>3 päeva</p>
+                                    <p className={summaryElements}>{PRIORITIES[+problem.prioriteediSoovitus]}</p>
+                                    <div className="w-3 rounded" style={{backgroundColor: COLORS[+problem.prioriteediSoovitus]}}/>
+                                </AccordionSummary>
+                                <AccordionDetails>
                                     <div>
-                                        <div className="ButtonController">
-                                            <button className={displayButtonStyles}>Kaebus</button>
-                                            <button className={displayButtonStyles}>Profiil</button>
-                                            <button className={displayButtonStyles}>Ajalugu</button>
-                                            <button className={displayButtonStyles}><Link to="/kalender">Tunniplaan</Link></button>
-                                        </div>
+                                        Sõduri kaebus:
+                                        {problem.põhjus}
                                         <div>
-                                            <FormControl className={classes.formControl}>
-                                                <InputLabel id="demo-simple-select-label">Eeldatav kestvus</InputLabel>
-                                                <Select
-                                                    labelId="demo-simple-select-label"
-                                                    id="demo-simple-select"
-                                                >
-                                                    <MenuItem value={10}>5 min</MenuItem>
-                                                    <MenuItem value={20}>10 min</MenuItem>
-                                                    <MenuItem value={30}>30 min</MenuItem>
-                                                </Select>
-                                            </FormControl>
-                                        </div>
-                                        <div>
-                                            <FormControl className={classes.formControl}>
-                                                <InputLabel id="demo-simple-select-label">Muuda prioriteeti</InputLabel>
-                                                <Select
-                                                    labelId="demo-simple-select-label"
-                                                    id="demo-simple-select"
-                                                >
-                                                    <MenuItem value={10}>0</MenuItem>
-                                                    <MenuItem value={20}>1</MenuItem>
-                                                    <MenuItem value={30}>2</MenuItem>
-                                                </Select>
-                                            </FormControl>
-                                        </div>
-                                        <div className="ButtonController">
-                                            <button className={displayButtonStyles}>Kinnita</button>
+                                            <div className="ButtonController">
+                                                <button className={displayButtonStyles}>Kaebus</button>
+                                                <button className={displayButtonStyles}>Profiil</button>
+                                                <button className={displayButtonStyles}>Ajalugu</button>
+                                                <button className={displayButtonStyles}><Link
+                                                    to="/kalender">Tunniplaan</Link></button>
+                                            </div>
+                                            <div>
+                                                <FormControl className={classes.formControl}>
+                                                    <InputLabel id="demo-simple-select-label">Eeldatav
+                                                        kestvus</InputLabel>
+                                                    <Select
+                                                        labelId="demo-simple-select-label"
+                                                        id="demo-simple-select"
+                                                    >
+                                                        <MenuItem value={10}>5 min</MenuItem>
+                                                        <MenuItem value={20}>10 min</MenuItem>
+                                                        <MenuItem value={30}>30 min</MenuItem>
+                                                    </Select>
+                                                </FormControl>
+                                            </div>
+                                            <div>
+                                                <FormControl className={classes.formControl}>
+                                                    <InputLabel id="demo-simple-select-label">Muuda
+                                                        prioriteeti</InputLabel>
+                                                    <Select
+                                                        labelId="demo-simple-select-label"
+                                                        id="demo-simple-select"
+                                                    >
+                                                        <MenuItem value={10}>0</MenuItem>
+                                                        <MenuItem value={20}>1</MenuItem>
+                                                        <MenuItem value={30}>2</MenuItem>
+                                                    </Select>
+                                                </FormControl>
+                                            </div>
+                                            <div className="ButtonController">
+                                                <button className={displayButtonStyles}>Kinnita</button>
+                                            </div>
                                         </div>
                                     </div>
-                            </div>
-                        </AccordionDetails>
-                    </Accordion>
-                )
-            })}
+                                </AccordionDetails>
+                            </Accordion>
+                        )
+                    })}
                 </div>
             </div>
         </div>
