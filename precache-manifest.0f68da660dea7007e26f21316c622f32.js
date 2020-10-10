@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8f757ff8b66c2529f95ce80b10b8d279",
+    "revision": "48cc25c5845d2ffbbf89ce7fdef4891b",
     "url": "/riigikaitse-hackathon-plaan-b/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/riigikaitse-hackathon-plaan-b/static/css/2.85dfc17e.chunk.css"
   },
   {
-    "revision": "2e9fa7a6686ce7dfde5a",
-    "url": "/riigikaitse-hackathon-plaan-b/static/css/main.d6928b13.chunk.css"
+    "revision": "215680c90f8298ff59e1",
+    "url": "/riigikaitse-hackathon-plaan-b/static/css/main.004bc2e0.chunk.css"
   },
   {
     "revision": "0c980aa20d488eaad9f4",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/riigikaitse-hackathon-plaan-b/static/js/2.2a03f9fd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2e9fa7a6686ce7dfde5a",
-    "url": "/riigikaitse-hackathon-plaan-b/static/js/main.74d097f4.chunk.js"
+    "revision": "215680c90f8298ff59e1",
+    "url": "/riigikaitse-hackathon-plaan-b/static/js/main.15fe7fe8.chunk.js"
   },
   {
     "revision": "badf7393110a68b41289",
