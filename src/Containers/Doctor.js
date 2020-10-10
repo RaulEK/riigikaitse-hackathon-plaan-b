@@ -69,6 +69,24 @@ const mockData = [
     }
 ]
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '100%',
+    },
+    heading: {
+        fontSize: theme.typography.pxToRem(15),
+        flexBasis: '33.33%',
+        flexShrink: 0,
+    },
+    secondaryHeading: {
+        fontSize: theme.typography.pxToRem(15),
+        color: theme.palette.text.secondary,
+    },
+}));
+
+
+const summaryElements = "w-1/4 text-center";
+const displayButtonStyles = "text-xl py-1 rounded bg-blue-400 text-white h-full w-32 display justify-center ml-4 shadow-lg hover:bg-blue-500";
 
 const calculateStatistics = (data) => {
     let result = {};
@@ -89,7 +107,7 @@ export default function CustomizedAccordions() {
 
 
     return (
-        <div className={CONTENTSTYLE}>
+        <div className={ CONTENTSTYLE }>
             <div className="w-4/5 md:w-full">
                 <div className="controls w-full h-14 mb-8 flex justify-between">
                     <DoctorSummary summary={summary}/>
