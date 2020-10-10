@@ -4,8 +4,7 @@ import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import TodayOutlinedIcon from '@material-ui/icons/TodayOutlined';
 import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalendarOutlined';
 import {timetable} from "./Events";
-
-const buttonStyle = "rounded bg-white w-3/5 h-32 m-8 flex justify-center items-center rounded shadow-lg hover:bg-gray-100 text-2xl lg:w-2/5";
+import {buttonStyle} from "../constans";
 
 const LandingPage = () => {
 

@@ -24,12 +24,12 @@ const CalendarView = (props) => {
     const { location } = useHistory();
     return (
         <div className={CONTENTSTYLE + " flex-col"}>
-            <div className="shadow-md">
+            <div className="shadow-md bg-white p-8 rounded-lg">
             <Calendar
                 localizer={localizer}
                 startAccessor="start"
                 endAccessor="end"
-                style={{ height: 700 }}
+                style={{ height: "70vh" }}
                 events={(location.state && location.state.eventData) || kava}
                 views={['month', 'day', 'agenda']}
                 messages={{

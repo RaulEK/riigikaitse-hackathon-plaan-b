@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import {buttonStyle} from "../constans";
 
-const buttonStyle = "rounded bg-white w-1/4 h-32 m-8 flex justify-center items-center rounded shadow-lg hover:bg-gray-100 text-2xl";
 const QuestionForm = () => {
     let history = useHistory();
     const [questionIndex, setQuestionIndex] = useState(0);
@@ -42,7 +42,7 @@ const QuestionForm = () => {
                 <h1 className="font-bold text-gray-800 text-3xl p-8">{questions[questionIndex].question}</h1>
             </div>
             <div className="w-full flex justify-center flex-col items-center">
-                <button style={{borderRadius: "25px"}} onClick={() => setQuestionIndex(questionIndex + 1)}
+                <button style={{borderRadius: "25px", position: "relative"}} onClick={() => setQuestionIndex(questionIndex + 1)}
                         className={buttonStyle}><p>{questions[questionIndex].answers[0]}</p></button>
                 <button style={{borderRadius: "25px"}} onClick={() => setQuestionIndex(questionIndex + 1)}
                         className={buttonStyle}><p>{questions[questionIndex].answers[1]}</p></button>
