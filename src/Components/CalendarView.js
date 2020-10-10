@@ -21,7 +21,6 @@ const CalendarView = () => {
     const [events, setEvents] = useState(defaultEvent);
     return (
         <div>
-            <h1 className="font-bold text-dark text-2xl">Mart Mets</h1>
             <Calendar
                 localizer={localizer}
                 startAccessor="start"
