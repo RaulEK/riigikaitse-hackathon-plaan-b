@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/riigikaitse-hackathon-plaan-b/static/css/main.aeff0a1e.chunk.css",
-    "main.js": "/riigikaitse-hackathon-plaan-b/static/js/main.14aaa83b.chunk.js",
-    "main.js.map": "/riigikaitse-hackathon-plaan-b/static/js/main.14aaa83b.chunk.js.map",
+    "main.js": "/riigikaitse-hackathon-plaan-b/static/js/main.9a72eaad.chunk.js",
+    "main.js.map": "/riigikaitse-hackathon-plaan-b/static/js/main.9a72eaad.chunk.js.map",
     "runtime-main.js": "/riigikaitse-hackathon-plaan-b/static/js/runtime-main.fb22f83a.js",
     "runtime-main.js.map": "/riigikaitse-hackathon-plaan-b/static/js/runtime-main.fb22f83a.js.map",
     "static/js/2.6163965d.chunk.js": "/riigikaitse-hackathon-plaan-b/static/js/2.6163965d.chunk.js",
     "static/js/2.6163965d.chunk.js.map": "/riigikaitse-hackathon-plaan-b/static/js/2.6163965d.chunk.js.map",
     "index.html": "/riigikaitse-hackathon-plaan-b/index.html",
-    "precache-manifest.7fa17cab8d80af30571c61249482af39.js": "/riigikaitse-hackathon-plaan-b/precache-manifest.7fa17cab8d80af30571c61249482af39.js",
+    "precache-manifest.54d19da02762d19beda43318c2317d60.js": "/riigikaitse-hackathon-plaan-b/precache-manifest.54d19da02762d19beda43318c2317d60.js",
     "service-worker.js": "/riigikaitse-hackathon-plaan-b/service-worker.js",
     "static/css/main.aeff0a1e.chunk.css.map": "/riigikaitse-hackathon-plaan-b/static/css/main.aeff0a1e.chunk.css.map",
     "static/js/2.6163965d.chunk.js.LICENSE.txt": "/riigikaitse-hackathon-plaan-b/static/js/2.6163965d.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.fb22f83a.js",
     "static/js/2.6163965d.chunk.js",
     "static/css/main.aeff0a1e.chunk.css",
-    "static/js/main.14aaa83b.chunk.js"
+    "static/js/main.9a72eaad.chunk.js"
   ]
 }
