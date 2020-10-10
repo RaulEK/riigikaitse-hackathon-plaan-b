@@ -11,7 +11,7 @@ const LandingPage = () => {
         <div className="w-full h-auto flex justify-center items-center flex-col">
             <h1 className="font-bold text-gray-800 text-3xl p-8">Tere tulemast Medkioski!</h1>
             <div className="w-full flex justify-center flex-col items-center">
-                <Link style={{borderRadius: "25px", position:"relative"}} className={buttonStyle} to="/form"><EditOutlinedIcon style={{ fontSize: 40, position:"absolute", left:"30px"}}/><p>Loo taotlus</p></Link>
+                <Link style={{borderRadius: "25px", position:"relative"}} className={buttonStyle} to="/question"><EditOutlinedIcon style={{ fontSize: 40, position:"absolute", left:"30px"}}/><p>Loo taotlus</p></Link>
                 <Link style={{borderRadius: "25px", position:"relative"}} className={buttonStyle} to="/kalender"><TodayOutlinedIcon style={{ fontSize: 40, position:"absolute", left:"30px"}}/><p>Vaata kalendrit</p></Link>
                 <Link style={{borderRadius: "25px", position:"relative"}} className={buttonStyle} to="/arst"><PermContactCalendarOutlinedIcon style={{ fontSize: 40, position:"absolute", left:"30px"}}/><p>Tervisemurede raportid</p></Link>
             </div>
