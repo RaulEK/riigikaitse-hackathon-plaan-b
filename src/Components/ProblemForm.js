@@ -9,6 +9,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import moment from 'moment';
 import {CONTENTSTYLE} from "../constans";
 import axios from "axios";
+import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalendarOutlined';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -62,11 +63,11 @@ const ProblemForm = () => {
         setSkipDate(selectedDate);
         setShowCalendar(false);
     }
-
+    //<InputLabel>Millal tervisehäda tekkis?</InputLabel>
     return (
 
         <div className={CONTENTSTYLE + "w-full h-full bg-gray-200 p-10"}>
-            <div className={flexboxContainerStyle}>
+            <div className={flexboxContainerStyle} style={{position: "relative"}}>
                 <div className="flex w-full">
                     <h1 className="text-2xl">Arstivisiidi taotlus</h1>
                 </div>
@@ -89,10 +90,12 @@ const ProblemForm = () => {
                                multiline value={description} rows={4} variant="outlined" required
                                inputProps={{style: {fontSize: 20}}}/>
                 </div>
+                <div className="flex justify-start w-full h-1/2 mt-4 items-start">
+                    <p>Millal tervisehäda tekkis?</p>
+                </div>
+                <div className="flex justify-between w-full h-1/2 mt-4 items-start">
+                    <div className="flex flex-col w-2/5 lg:w-1/3" style={{position: "relative"}}>
 
-                <div className="flex justify-around w-full h-1/2 mt-12 items-start">
-                    <div className="flex flex-col w-2/5 lg:w-1/3">
-                        <InputLabel>Millal tervisehäda tekkis?</InputLabel>
                         <TextField
                             required
                             onClick={() => setShowCalendar(!showCalendar)}
@@ -103,7 +106,10 @@ const ProblemForm = () => {
                             }}
                             variant="outlined"
                             size="small"
-                        />
+                        >
+                        </TextField>
+                        <PermContactCalendarOutlinedIcon
+                            style={{fontSize: 40, position: "absolute", right: "5px"}}/>
                         {showCalendar ?
                             <Calendar onChange={(date) => handleSkipDateSelection(date)} value={skipDate}
                                       locale="et-EE" maxDate={new Date()}/>
