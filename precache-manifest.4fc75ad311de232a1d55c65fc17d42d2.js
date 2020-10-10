@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "afd1215d917b5a92fe3ed96745d82963",
+    "revision": "55ace6300be8e9825871f852b53a076b",
     "url": "/riigikaitse-hackathon-plaan-b/index.html"
   },
   {
-    "revision": "998d29b00bdc465f4ebb",
-    "url": "/riigikaitse-hackathon-plaan-b/static/css/main.aeff0a1e.chunk.css"
+    "revision": "4bcecdeef8370c5bd39d",
+    "url": "/riigikaitse-hackathon-plaan-b/static/css/main.1168fd5c.chunk.css"
   },
   {
     "revision": "86a30e93d33b19756acc",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/riigikaitse-hackathon-plaan-b/static/js/2.6163965d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "998d29b00bdc465f4ebb",
-    "url": "/riigikaitse-hackathon-plaan-b/static/js/main.9a72eaad.chunk.js"
+    "revision": "4bcecdeef8370c5bd39d",
+    "url": "/riigikaitse-hackathon-plaan-b/static/js/main.2dfeac0a.chunk.js"
   },
   {
     "revision": "badf7393110a68b41289",
