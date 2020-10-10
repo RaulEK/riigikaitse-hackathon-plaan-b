@@ -9,6 +9,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import moment from 'moment';
 import {CONTENTSTYLE} from "../constans";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,7 +32,7 @@ const flexboxContainerStyle = "flex pt-10 px-16 flex-col items-center content-ce
 
 const ProblemForm = () => {
     const classes = useStyles();
-
+    let history = useHistory();
     const [name, setName] = useState("");
     const [symptoms, setSymptoms] = useState("");
     const [description, setDescription] = useState("");
@@ -38,6 +40,7 @@ const ProblemForm = () => {
     const [showCalendar, setShowCalendar] = useState(false);
 
     const handleSend = () => {
+
 
         if (skipDate === null) {
             return;
@@ -53,6 +56,7 @@ const ProblemForm = () => {
             .then(res => {
                 console.log(res);
                 console.log(res.data);
+                history.push("/");
             }, (error) => {
                 console.log(error);
             });
