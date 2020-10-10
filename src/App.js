@@ -1,32 +1,27 @@
 import React from 'react';
-import {
-    Switch,
-    Route
-} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import LandingPage from "./Components/Landingpage";
 import Doctor from "./Containers/Doctor";
 import Header from "./Components/Header";
 import ProblemForm from "./Components/ProblemForm";
-import CalendarView from "./Components/CalendarView";
 
 function App() {
     return (
-        <div className="h-screen">
+        <div className="">
             <Header/>
-            <Switch>
-                <Route path="/form">
-                    <ProblemForm/>
-                </Route>
-                <Route path="/arst">
-                    <Doctor/>
-                </Route>
-                <Route path="/calendar">
-                    <CalendarView/>
-                </Route>
-                <Route path="/">
-                    <LandingPage/>
-                </Route>
-            </Switch>
+            <div className="pt-24 h-full">
+                <Switch>
+                    <Route path="/form">
+                        <ProblemForm/>
+                    </Route>
+                    <Route path="/arst">
+                        <Doctor/>
+                    </Route>
+                    <Route path="/">
+                        <LandingPage/>
+                    </Route>
+                </Switch>
+            </div>
         </div>
     );
 }
