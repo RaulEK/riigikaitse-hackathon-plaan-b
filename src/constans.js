@@ -1,1 +1,1 @@
-export const PRIORITIES = ['Kõrge', 'Keskmine', 'Madal']
+export const PRIORITIES = ['Kõrge', 'Keskmine', 'Madal', 'Kokku']

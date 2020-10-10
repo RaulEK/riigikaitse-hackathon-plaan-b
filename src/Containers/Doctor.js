@@ -1,10 +1,10 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
-import {PRIORITIES} from "../constans";
 import DoctorSummary from "../Components/DoctorSummary";
+
 const Accordion = withStyles({
     root: {
         border: '1px solid rgba(0, 0, 0, .125)',
@@ -65,9 +65,10 @@ const mockData = [
         põhjus: "Kriimustasin ja sooviksin plaastrit",
         prioriteediSoovitus: "0"
     }
-]
+];
 
 const summaryElements = "w-1/4 text-center";
+const displayButtonStyles = "text-xl py-1  border rounded bg-blue-400 text-white h-full w-32 display justify-center ml-4";
 
 const calculateStatistics = (data) => {
     let result = {};
@@ -78,7 +79,7 @@ const calculateStatistics = (data) => {
         total += 1;
         result[problemKey] = resultEntry ? resultEntry + 1 : 1;
     });
-    result.total = total
+    result[Object.keys(result).length] = total
     return result;
 
 };
@@ -91,39 +92,45 @@ export default function CustomizedAccordions() {
     };
 
     return (
-        <div className="px-32">
-            <div className="controls">
-            <DoctorSummary summary={ summary }/>
+        <div className="lg:px-32 xl:px-64 flex justify-center px-8">
+            <div className="w-4/5 md:w-full">
+            <div className="controls w-full h-14 mb-8 flex justify-between">
+                <DoctorSummary summary={summary}/>
+                <div className="ButtonController">
+                    <button className={displayButtonStyles}>Uued</button>
+                    <button className={displayButtonStyles}>Vaadatud</button>
+                </div>
             </div>
             <Accordion>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                     <div className="flex w-full">
-                        <p className={ summaryElements }>Nimi</p>
-                        <p className={ summaryElements }>Sümptom</p>
-                        <p className={ summaryElements }>Esitamisest möödas</p>
-                        <p className={ summaryElements }>Prioriteet</p>
+                        <p className={summaryElements}>Nimi</p>
+                        <p className={summaryElements}>Sümptom</p>
+                        <p className={summaryElements}>Esitamisest möödas</p>
+                        <p className={summaryElements}>Prioriteet</p>
                     </div>
                 </AccordionSummary>
             </Accordion>
             {mockData.map((problem, idx) => {
                 return (
-                    <Accordion square expanded={expanded === idx} onChange={handleChange(idx)}>
+                    <Accordion square expanded={expanded === idx} onChange={handleChange(idx)} key={problem.nimi}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                            <p className={ summaryElements }>{ problem.nimi }</p>
-                            <p className={ summaryElements }>{ problem.sümptom }</p>
-                            <p className={ summaryElements }>3 päeva</p>
-                            <p className={ summaryElements }>{problem.prioriteediSoovitus}</p>
+                            <p className={summaryElements}>{problem.nimi}</p>
+                            <p className={summaryElements}>{problem.sümptom}</p>
+                            <p className={summaryElements}>3 päeva</p>
+                            <p className={summaryElements}>{problem.prioriteediSoovitus}</p>
                         </AccordionSummary>
                         <AccordionDetails>
-                         <div>
-                             Sõduri kaebus:
-                             { problem.põhjus }
-                             <button>Kinnita</button>
-                         </div>
+                            <div>
+                                Sõduri kaebus:
+                                {problem.põhjus}
+                                <button>Kinnita</button>
+                            </div>
                         </AccordionDetails>
                     </Accordion>
                 )
             })}
+            </div>
         </div>
     );
 }
