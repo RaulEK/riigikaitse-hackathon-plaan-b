@@ -24,16 +24,22 @@ const QuestionForm = () => {
     if (questionIndex === 2) {
         return (
             <div className="w-full h-auto flex justify-center items-center flex-col">
-                <h1>{questions[questionIndex].question}</h1>
-                <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/"><p>Probleem pole tõsine - liigu pealehele</p></Link>
-                <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/form"><p>Vajan arsti abi - broneeri külastus</p></Link>
+                <div className="w-1/2">
+                    <h1 className="font-bold text-gray-800 text-3xl p-8 text-center"><i>Jalavalu</i> on peale <i>rännakut</i> levinud ja tihti leebe probleem. Määri jalale kreemi. Kui valu muutub talumatuks või mitu päeva järjest, siis võta uuesti ühendust.</h1>
+                </div>
+                <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/"><p>Probleem pole tõsine - liigu
+                    pealehele</p></Link>
+                <Link style={{borderRadius: "25px"}} className={buttonStyle} to="/form"><p>Vajan arsti abi - broneeri
+                    külastus</p></Link>
             </div>
         )
     }
 
     return (
         <div className="w-full h-auto flex justify-center items-center flex-col">
-            <h1>{questions[questionIndex].question}</h1>
+            <div className="w-1/2 text-center">
+                <h1 className="font-bold text-gray-800 text-3xl p-8">{questions[questionIndex].question}</h1>
+            </div>
             <div className="w-full flex justify-center flex-col items-center">
                 <button style={{borderRadius: "25px"}} onClick={() => setQuestionIndex(questionIndex + 1)}
                         className={buttonStyle}><p>{questions[questionIndex].answers[0]}</p></button>
