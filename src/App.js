@@ -7,6 +7,7 @@ import LandingPage from "./Components/Landingpage";
 import Doctor from "./Containers/Doctor";
 import Header from "./Components/Header";
 import ProblemForm from "./Components/ProblemForm";
+import CalendarView from "./Components/CalendarView";
 
 function App() {
     return (
@@ -18,6 +19,9 @@ function App() {
                 </Route>
                 <Route path="/arst">
                     <Doctor/>
+                </Route>
+                <Route path="/calendar">
+                    <CalendarView/>
                 </Route>
                 <Route path="/">
                     <LandingPage/>
