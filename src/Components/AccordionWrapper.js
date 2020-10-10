@@ -6,7 +6,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import {displayButtonStyles, PRIORITIES, summaryElements} from "../constans";
+import {COLORS, displayButtonStyles, PRIORITIES, summaryElements} from "../constans";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
@@ -19,7 +19,20 @@ const useStyles = makeStyles((theme) => ({
     selectEmpty: {
         marginTop: theme.spacing(2),
     },
+    root: {
+        width: '100%',
+    },
+    heading: {
+        fontSize: theme.typography.pxToRem(15),
+        flexBasis: '33.33%',
+        flexShrink: 0,
+    },
+    secondaryHeading: {
+        fontSize: theme.typography.pxToRem(15),
+        color: theme.palette.text.secondary,
+    },
 }));
+
 
 const leftTextClasses = "text-gray-700 w-1/3 text-right pr-4";
 const rightTextClasses = "text-black w-1/2";
@@ -97,6 +110,7 @@ const AccordionWrapper = ({problem, idx}) => {
                 <p className={summaryElements}>{problem.sümptom}</p>
                 <p className={summaryElements}>3 päeva</p>
                 <p className={summaryElements}>{PRIORITIES[+problem.prioriteediSoovitus]}</p>
+                <div className="w-3 rounded" style={{backgroundColor: COLORS[+problem.prioriteediSoovitus]}}/>
             </AccordionSummary>
             <AccordionDetails>
                 <div className="w-full flex flex-col">

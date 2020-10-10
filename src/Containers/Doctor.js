@@ -69,25 +69,6 @@ const mockData = [
     }
 ]
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        width: '100%',
-    },
-    heading: {
-        fontSize: theme.typography.pxToRem(15),
-        flexBasis: '33.33%',
-        flexShrink: 0,
-    },
-    secondaryHeading: {
-        fontSize: theme.typography.pxToRem(15),
-        color: theme.palette.text.secondary,
-    },
-}));
-
-
-const summaryElements = "w-1/4 text-center";
-const displayButtonStyles = "text-xl py-1 rounded bg-blue-400 text-white h-full w-32 display justify-center ml-4 shadow-lg hover:bg-blue-500";
-
 const calculateStatistics = (data) => {
     let result = {};
     let total = 0;
@@ -117,7 +98,8 @@ export default function CustomizedAccordions() {
                     </div>
                 </div>
                 <Accordion>
-                    <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                    <AccordionSummary style={{backgroundColor: "rgb(142 200 243)", fontWeight: "bold"}}
+                                      aria-controls="panel1d-content" id="panel1d-header">
                         <div className="flex w-full">
                             <p className={summaryElements}>Nimi</p>
                             <p className={summaryElements}>Sümptom</p>
