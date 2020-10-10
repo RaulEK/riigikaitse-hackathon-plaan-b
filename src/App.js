@@ -5,6 +5,7 @@ import Doctor from "./Containers/Doctor";
 import Header from "./Components/Header";
 import ProblemForm from "./Components/ProblemForm";
 import CalendarView from "./Components/CalendarView";
+import QuestionForm from "./Components/QuestionForm";
 
 function App() {
     return (
@@ -20,6 +21,9 @@ function App() {
                     </Route>
                     <Route path="/arst">
                         <Doctor/>
+                    </Route>
+                    <Route path="/question">
+                        <QuestionForm />
                     </Route>
                     <Route path="/">
                         <LandingPage/>
