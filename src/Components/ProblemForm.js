@@ -7,10 +7,11 @@ import '../styles/index.scss';
 import InputLabel from "@material-ui/core/InputLabel";
 import withStyles from "@material-ui/core/styles/withStyles";
 import moment from 'moment';
-import {CONTENTSTYLE} from "../constans";
+import {CONTENTSTYLE, displayButtonStyles} from "../constans";
 import axios from "axios";
 import PermContactCalendarOutlinedIcon from '@material-ui/icons/PermContactCalendarOutlined';
 import { useHistory } from "react-router-dom";
+import Snackbar from "@material-ui/core/Snackbar/Snackbar";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,16 +33,16 @@ const backgroundStyle = "m-auto bg-gray-300 h-full";
 const flexboxContainerStyle = "flex pt-10 px-16 flex-col items-center content-center bg-white w-full lg:w-2/3 h-full m-auto rounded-lg shadow-xl";
 
 const ProblemForm = () => {
-    const classes = useStyles();
+    let classes = useStyles();
     let history = useHistory();
     const [name, setName] = useState("");
+    const [open, setOpen] = useState(false);
     const [symptoms, setSymptoms] = useState("");
     const [description, setDescription] = useState("");
     const [skipDate, setSkipDate] = useState(null);
     const [showCalendar, setShowCalendar] = useState(false);
 
     const handleSend = () => {
-
         if (skipDate === null) {
             return;
         }
@@ -54,7 +55,10 @@ const ProblemForm = () => {
         }
         axios.post('https://plaanb.azurewebsites.net/problem', data)
             .then(res => {
-                history.push("/");
+                setOpen(true);
+                setTimeout(() => {
+                    history.push('/')
+                },1000)
             }, (error) => {
                 console.log(error);
             });
@@ -117,10 +121,23 @@ const ProblemForm = () => {
                             : <button onClick={() => setSkipDate(null)}>Tühista valik</button>}
                     </div>
 
-                    <button onClick={() => handleSend()}
-                            className="text-md lg:text-xl py-1 rounded bg-blue-400 text-white h-2/3 w-40 lg:w-26 display justify-center ml-4 shadow-lg hover:bg-blue-500">
-                        Saada
-                    </button>
+                    <div className="ButtonController">
+                        <button className="text-md lg:text-xl py-1 rounded bg-blue-400 text-white h-2/3 w-40 lg:w-26 display justify-center ml-4 shadow-lg hover:bg-blue-500" onClick={handleSend}>Saada</button>
+                        <Snackbar
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            ContentProps={
+                                classes= {
+                                    style: {background:"green"}
+                                }
+                            }
+                            open={open}
+                            autoHideDuration={0.9}
+                            message="Kuulutus edukalt lisatud!"
+                        />
+                    </div>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ import Header from "./Components/Header";
 import ProblemForm from "./Components/ProblemForm";
 import CalendarView from "./Components/CalendarView";
 import QuestionForm from "./Components/QuestionForm";
+import 'reactjs-popup/dist/index.css';
 
 function App() {
     return (
