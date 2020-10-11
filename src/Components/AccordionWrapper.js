@@ -88,12 +88,12 @@ const RenderControlPanel = ({classes, problem, history}) => {
         const data = {
             ...problem
         };
-        axios.post('https://plaanb.azurewebsites.net/problem', data)
+        axios.put('https://plaanb.azurewebsites.net/problem', data)
             .then(res => {
                 setOpen(true);
                 setTimeout(() => {
-                    history.push('/')
-                },1000)
+                    setOpen(false)
+                },3000)
             }, (error) => {
                 console.log(error);
                 history.push('/')
