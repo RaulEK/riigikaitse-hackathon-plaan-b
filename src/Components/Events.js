@@ -23,7 +23,7 @@ export const kava = [
 
 export const timetable = [
     {
-        'title': 'Karl Aas',
+        'title': 'Indrek Aastung',
         'start': new Date(2020, 9, 2, 15, 30, 0),
         'end': new Date(2020, 9, 2, 20, 30, 0)
     },
@@ -48,32 +48,32 @@ export const timetable = [
         'end': new Date(2020, 9, 15, 20, 30, 0)
     },
     {
-        'title': 'Mart Mets',
-        'start': new Date(2020, 9, 11, 21, 0, 0),
-        'end': new Date(2020, 9, 11, 22, 0, 0)
+        'title': 'Vidrik Tuul',
+        'start': new Date(2020, 9, 25, 21, 0, 0),
+        'end': new Date(2020, 9, 25, 22, 0, 0)
     },
     {
-        'title': 'Peeter Toom',
+        'title': 'Tambet Puu',
         'start': new Date(2020, 9, 27, 11, 30, 0),
         'end': new Date(2020, 9, 27, 14, 30, 0)
     },
     {
-        'title': 'Eno Kannel',
-        'start': new Date(2020, 9, 12, 15, 0, 0),
-        'end': new Date(2020, 9, 12, 17, 0, 0)
+        'title': 'Vambola Mägi',
+        'start': new Date(2020, 9, 16, 15, 0, 0),
+        'end': new Date(2020, 9, 16, 17, 0, 0)
     },
     {
-        'title': 'Karl Aas',
+        'title': 'Carl Aasmäe',
         'start': new Date(2020, 9, 30, 15, 30, 0),
         'end': new Date(2020, 9, 30, 20, 30, 0)
     },
     {
-        'title': 'Mart Mets',
-        'start': new Date(2020, 9, 11, 21, 0, 0),
-        'end': new Date(2020, 9, 11, 22, 0, 0)
+        'title': 'Martin Metsapuu',
+        'start': new Date(2020, 9, 28, 21, 0, 0),
+        'end': new Date(2020, 9, 28, 22, 0, 0)
     },
     {
-        'title': 'Peeter Toom',
+        'title': 'Mait Jõhvikas',
         'start': new Date(2020, 9, 21, 11, 30, 0),
         'end': new Date(2020, 9, 21, 14, 30, 0)
     },
@@ -98,8 +98,8 @@ export const timetable = [
         'end': new Date(2020, 9, 20, 14, 30, 0)
     },
     {
-        'title': 'Eno Kannel',
-        'start': new Date(2020, 9, 17, 15, 0, 0),
-        'end': new Date(2020, 9, 17, 17, 0, 0)
+        'title': 'Gregor Eesmaa',
+        'start': new Date(2020, 9, 12, 14, 0, 0),
+        'end': new Date(2020, 9, 12, 15, 0, 0)
     }
 ]
