@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/riigikaitse-hackathon-plaan-b/precache-manifest.ba503360729b89df0890725854086eb6.js"
+  "/riigikaitse-hackathon-plaan-b/precache-manifest.a3488f743fff59a69fb24aa30d24764f.js"
 );
 
 self.addEventListener('message', (event) => {

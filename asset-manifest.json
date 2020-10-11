@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/riigikaitse-hackathon-plaan-b/static/css/main.4df3121a.chunk.css",
-    "main.js": "/riigikaitse-hackathon-plaan-b/static/js/main.cd0ca743.chunk.js",
-    "main.js.map": "/riigikaitse-hackathon-plaan-b/static/js/main.cd0ca743.chunk.js.map",
+    "main.css": "/riigikaitse-hackathon-plaan-b/static/css/main.b7ffe378.chunk.css",
+    "main.js": "/riigikaitse-hackathon-plaan-b/static/js/main.ada7a628.chunk.js",
+    "main.js.map": "/riigikaitse-hackathon-plaan-b/static/js/main.ada7a628.chunk.js.map",
     "runtime-main.js": "/riigikaitse-hackathon-plaan-b/static/js/runtime-main.fb22f83a.js",
     "runtime-main.js.map": "/riigikaitse-hackathon-plaan-b/static/js/runtime-main.fb22f83a.js.map",
     "static/css/2.d2443600.chunk.css": "/riigikaitse-hackathon-plaan-b/static/css/2.d2443600.chunk.css",
     "static/js/2.55788a3f.chunk.js": "/riigikaitse-hackathon-plaan-b/static/js/2.55788a3f.chunk.js",
     "static/js/2.55788a3f.chunk.js.map": "/riigikaitse-hackathon-plaan-b/static/js/2.55788a3f.chunk.js.map",
     "index.html": "/riigikaitse-hackathon-plaan-b/index.html",
-    "precache-manifest.ba503360729b89df0890725854086eb6.js": "/riigikaitse-hackathon-plaan-b/precache-manifest.ba503360729b89df0890725854086eb6.js",
+    "precache-manifest.a3488f743fff59a69fb24aa30d24764f.js": "/riigikaitse-hackathon-plaan-b/precache-manifest.a3488f743fff59a69fb24aa30d24764f.js",
     "service-worker.js": "/riigikaitse-hackathon-plaan-b/service-worker.js",
     "static/css/2.d2443600.chunk.css.map": "/riigikaitse-hackathon-plaan-b/static/css/2.d2443600.chunk.css.map",
-    "static/css/main.4df3121a.chunk.css.map": "/riigikaitse-hackathon-plaan-b/static/css/main.4df3121a.chunk.css.map",
+    "static/css/main.b7ffe378.chunk.css.map": "/riigikaitse-hackathon-plaan-b/static/css/main.b7ffe378.chunk.css.map",
     "static/js/2.55788a3f.chunk.js.LICENSE.txt": "/riigikaitse-hackathon-plaan-b/static/js/2.55788a3f.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/riigikaitse-hackathon-plaan-b/static/media/background_shapes.d5d439fa.png"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.fb22f83a.js",
     "static/css/2.d2443600.chunk.css",
     "static/js/2.55788a3f.chunk.js",
-    "static/css/main.4df3121a.chunk.css",
-    "static/js/main.cd0ca743.chunk.js"
+    "static/css/main.b7ffe378.chunk.css",
+    "static/js/main.ada7a628.chunk.js"
   ]
 }
