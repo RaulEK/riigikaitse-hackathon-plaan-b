@@ -35,10 +35,10 @@ const flexboxContainerStyle = "flex pt-10 px-16 flex-col items-center content-ce
 const ProblemForm = () => {
     let classes = useStyles();
     let history = useHistory();
-    const [name, setName] = useState("");
+    const [name, setName] = useState("Gregor Eesmaa");
     const [open, setOpen] = useState(false);
-    const [symptoms, setSymptoms] = useState("");
-    const [description, setDescription] = useState("");
+    const [symptoms, setSymptoms] = useState("Jalg valutab");
+    const [description, setDescription] = useState("Kukkusin");
     const [skipDate, setSkipDate] = useState(null);
     const [showCalendar, setShowCalendar] = useState(false);
 
