@@ -54,8 +54,6 @@ const ProblemForm = () => {
         }
         axios.post('https://plaanb.azurewebsites.net/problem', data)
             .then(res => {
-                console.log(res);
-                console.log(res.data);
                 history.push("/");
             }, (error) => {
                 console.log(error);

@@ -5,7 +5,6 @@ import {useLocation} from 'react-router-dom'
 
 const Header = () => {
     const location = useLocation();
-    console.log(location)
     return (
         <div className="absolute top-0 h-24 w-full bg-blue-400 flex justify-between px-16 items-center shadow-xl"
              id="header">

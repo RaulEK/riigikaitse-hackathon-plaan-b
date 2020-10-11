@@ -11,6 +11,7 @@ import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -79,6 +80,19 @@ const renderPriorityPicker = (classes, problem) => {
     )
 };
 
+const handleDoctorConfirm = (problem, history) => {
+    const data = {
+        ...problem
+    };
+    axios.post('https://plaanb.azurewebsites.net/problem', data)
+        .then(res => {
+            history.push("/");
+        }, (error) => {
+            console.log(error);
+        });
+    history.push('/')
+};
+
 const renderControlPanel = (classes, problem,history) => {
     return (
         <div className="flex justify-between mt-8">
@@ -95,7 +109,7 @@ const renderControlPanel = (classes, problem,history) => {
                 {renderPriorityPicker(classes, problem)}
 
                 <div className="ButtonController">
-                    <button className={displayButtonStyles} onClick={() => history.push('/')}>Kinnita</button>
+                    <button className={displayButtonStyles} onClick={() => handleDoctorConfirm(problem, history)}>Kinnita</button>
                 </div>
             </div>
         </div>
