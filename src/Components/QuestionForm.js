@@ -3,6 +3,9 @@ import {Link} from "react-router-dom";
 import {useHistory} from "react-router-dom";
 import {buttonStyle} from "../constans";
 import Loader from "react-loader-spinner";
+import idCardIcon from './Icons/IDCard.png';
+import mobileIDIcon from './Icons/mobiiliID.png';
+import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 
 const QuestionForm = () => {
     let history = useHistory();
@@ -55,16 +58,16 @@ const QuestionForm = () => {
                     <h1 className="font-bold text-gray-800 text-3xl p-8 text-center">Vali autentimisviis.</h1>
                 </div>
                 <div className="w-full flex justify-center flex-col items-center">
-                    <button style={{borderRadius: "25px"}} onClick={() => {
+                    <button style={{borderRadius: "25px", position: "relative"}} onClick={() => {
                         setQuestionIndex(questionIndex + 1);
                         setSpinnerController(0)
                     }}
-                            className={buttonStyle}><p>ID-kaart</p></button>
-                    <button style={{borderRadius: "25px"}} onClick={() => {
+                            className={buttonStyle}><img src={idCardIcon} alt="idCard" style={{fontSize: 40, position: "absolute", left: "30px"}}/><p>ID-kaart</p></button>
+                    <button style={{borderRadius: "25px", position: "relative"}} onClick={() => {
                         setQuestionIndex(questionIndex + 1);
                         setSpinnerController(0)
                     }}
-                            className={buttonStyle}><p>Mobiil-ID</p></button>
+                            className={buttonStyle}><img src={mobileIDIcon} alt="idCard" style={{fontSize: 40, position: "absolute", left: "30px"}}/><p>Mobiil-ID</p></button>
                 </div>
             </div>
         )
@@ -73,7 +76,7 @@ const QuestionForm = () => {
     if (questionIndex === 3) {
         return (
             <div className="w-full h-auto flex justify-center items-center flex-col">
-                <div className="w-1/2">
+                <div className="w-1/2 bg-gray-400 rounded mt-5">
                     <h1 className="font-bold text-gray-800 text-3xl p-8 text-center"><i>Jalavalu</i> on
                         peale <i>rännakut</i> levinud ja tihti leebe probleem. Määri jalale kreemi. Kui valu muutub
                         talumatuks või mitu päeva järjest, siis võta uuesti ühendust.</h1>
