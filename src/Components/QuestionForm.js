@@ -15,7 +15,7 @@ const QuestionForm = () => {
     if (spinnerController === 0) {
         setTimeout(() => {
             setSpinnerController(2)
-        }, 3000)
+        }, 1000)
         return (
             <div className="w-full flex justify-center mt-64 ">
                 <Loader type="TailSpin" color="#00BFFF" height={80} width={80}/>
@@ -62,12 +62,12 @@ const QuestionForm = () => {
                         setQuestionIndex(questionIndex + 1);
                         setSpinnerController(0)
                     }}
-                            className={buttonStyle}><img src={idCardIcon} alt="idCard" style={{fontSize: 40, position: "absolute", left: "30px"}}/><p>ID-kaart</p></button>
+                            className={buttonStyle}><img src={idCardIcon} alt="idCard" style={{fontSize: 40, position: "absolute", left: "60px", width: "80px"}}/><p>ID-kaart</p></button>
                     <button style={{borderRadius: "25px", position: "relative"}} onClick={() => {
                         setQuestionIndex(questionIndex + 1);
                         setSpinnerController(0)
                     }}
-                            className={buttonStyle}><img src={mobileIDIcon} alt="idCard" style={{fontSize: 40, position: "absolute", left: "30px"}}/><p>Mobiil-ID</p></button>
+                            className={buttonStyle}><img src={mobileIDIcon} alt="idCard" style={{fontSize: 40, position: "absolute", left: "60px", width: "80px"}}/><p>Mobiil-ID</p></button>
                 </div>
             </div>
         )

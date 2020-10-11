@@ -62,7 +62,7 @@ const renderTimePicker = (classes) => {
     )
 };
 
-const renderPriorityPicker = (classes, problem) => {
+const renderPriorityPicker = (classes, problem, handlePiroritySet) => {
     return (
         <div>
             <FormControl className={classes.formControl}>
@@ -71,6 +71,7 @@ const renderPriorityPicker = (classes, problem) => {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     defaultValue={PRIORITIES[problem]}
+                    onChange={(event) => handlePiroritySet(event) }
                 >
                     <MenuItem value={0}>{PRIORITIES[0]}</MenuItem>
                     <MenuItem value={1}>{PRIORITIES[1]}</MenuItem>
@@ -81,25 +82,34 @@ const renderPriorityPicker = (classes, problem) => {
     )
 };
 
-const RenderControlPanel = ({classes, problem, history}) => {
+const RenderControlPanel = ({classes, problem, history, handleRefresh}) => {
     const [open, setOpen] = React.useState(false);
+    const [customPriority, setCustomPriority] = React.useState(null);
 
     const handleClick = () => {
+        console.log(customPriority,problem)
         const data = {
-            ...problem
+            ...problem,
+            priorityPrediction: customPriority || problem.priorityPrediction,
+            approvedPriorityPrediction: customPriority
         };
         axios.put('https://plaanb.azurewebsites.net/problem', data)
             .then(res => {
                 setOpen(true);
                 setTimeout(() => {
-                    setOpen(false)
-                },3000)
+                    setOpen(false);
+                    handleRefresh();
+                },1500)
             }, (error) => {
                 console.log(error);
                 history.push('/')
             });
 
     };
+
+    const handlePriorityChange = (event) => {
+        setCustomPriority(event.target.value)
+    }
     return (
         <div className="flex justify-between mt-8">
             <div className="ButtonController flex">
@@ -115,7 +125,7 @@ const RenderControlPanel = ({classes, problem, history}) => {
             </div>
             <div className="flex">
                 {renderTimePicker(classes)}
-                {renderPriorityPicker(classes, problem)}
+                {renderPriorityPicker(classes, problem, handlePriorityChange)}
             <div className="ButtonController">
                 <button className={displayButtonStyles} onClick={handleClick}>Kinnita</button>
                 <Snackbar
@@ -139,7 +149,7 @@ const RenderControlPanel = ({classes, problem, history}) => {
 }
 
 
-const AccordionWrapper = ({problem, idx}) => {
+const AccordionWrapper = ({problem, idx, refreshData}) => {
     const [expanded, setExpanded] = React.useState(null);
     let history = useHistory();
     const handleChange = (panel) => (event, newExpanded) => {
@@ -152,9 +162,9 @@ const AccordionWrapper = ({problem, idx}) => {
             <AccordionSummary aria-controls="panel1d-content" id="panel1d-header" expandIcon={<ExpandMoreIcon/>}>
                 <p className={summaryElements}>{problem.name}</p>
                 <p className={summaryElements}>{problem.symptoms}</p>
-                <p className={summaryElements}>3 päeva</p>
-                <p className={summaryElements}>{PRIORITIES[+problem.priorityPrediction]}</p>
-                <div className="w-3 rounded" style={{backgroundColor: COLORS[+problem.priorityPrediction]}}/>
+                <p className={summaryElements}>2 päeva</p>
+                <p className={summaryElements}>{PRIORITIES[+problem.approvedPriorityPrediction !== -1 ? +problem.approvedPriorityPrediction : +problem.priorityPrediction]}</p>
+                <div className="w-3 rounded" style={{backgroundColor: COLORS[+problem.approvedPriorityPrediction !== -1 ? +problem.approvedPriorityPrediction : +problem.priorityPrediction]}}/>
             </AccordionSummary>
             <AccordionDetails>
                 <div className="w-full flex flex-col">
@@ -180,7 +190,7 @@ const AccordionWrapper = ({problem, idx}) => {
                         </div>
                     </div>
                     <div className="border-t"><p>Kaebuse kirjeldus:</p><p>{problem.reason}</p></div>
-                    <RenderControlPanel classes={classes} problem={problem} history={history}/>
+                    <RenderControlPanel classes={classes} problem={problem} history={history} handleRefresh={refreshData}/>
                 </div>
             </AccordionDetails>
         </Accordion>

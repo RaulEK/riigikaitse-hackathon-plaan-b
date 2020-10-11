@@ -58,7 +58,7 @@ const ProblemForm = () => {
                 setOpen(true);
                 setTimeout(() => {
                     history.push('/')
-                },1000)
+                },800)
             }, (error) => {
                 console.log(error);
             });

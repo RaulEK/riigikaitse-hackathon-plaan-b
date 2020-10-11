@@ -76,12 +76,12 @@ const calculateStatistics = (data) => {
     let result = {};
     let total = 0;
     data.forEach(problem => {
-        const problemKey = problem.prioriteediSoovitus;
+        const problemKey = problem.approvedPriorityPrediction !== -1 ? problem.approvedPriorityPrediction : problem.priorityPrediction;
         const resultEntry = result[problemKey];
         total += 1;
         result[problemKey] = resultEntry ? resultEntry + 1 : 1;
     });
-    result[Object.keys(result).length] = total
+    result[3] = total
     return result;
 
 };
@@ -90,18 +90,26 @@ export default function CustomizedAccordions() {
     const [problemData, setProblemData] = useState(null);
     const [showData, setShowData] = useState(null);
     useEffect(() => {
-        console.log("I ran")
         axios.get('https://plaanb.azurewebsites.net/problems').then(res => {
             const response = res.data;
             if (response.length > 0) {
                 setTimeout(() => {
                     setProblemData(response)
-                    setShowData(response.filter(problem => problem.approvedPriorityPrediction === 0))
+                    setShowData(response.filter(problem => problem.approvedPriorityPrediction === -1))
                 }, 1000)
             }
         }).catch((err) => console.log(err))
 
     },[]);
+
+    // this is the point where we should consider using redux strore
+    const handleRefetch = () => {
+        axios.get('https://plaanb.azurewebsites.net/problems').then(res => {
+            const response = res.data;
+            setProblemData(response)
+            setShowData(response.filter(problem => problem.approvedPriorityPrediction === -1))
+        }).catch((err) => console.log(err));
+    };
 
     if(!problemData || !showData) { return (
         <div className="w-full flex justify-center mt-64 ">
@@ -109,16 +117,15 @@ export default function CustomizedAccordions() {
         </div>
     ) }
 
-    const summary = calculateStatistics(mockData);
-
+    const summary = calculateStatistics(showData);
     return (
         <div className={ CONTENTSTYLE }>
             <div className="w-4/5 md:w-full">
                 <div className="controls w-full h-14 mb-8 flex justify-between">
                     <DoctorSummary summary={summary}/>
                     <div className="ButtonController">
-                        <button onClick={() => setShowData(problemData.filter(problem => problem.approvedPriorityPrediction === 0))} className={displayButtonStyles}>Uued</button>
-                        <button onClick={() => setShowData(problemData.filter(problem => problem.approvedPriorityPrediction !== 0))} className={displayButtonStyles}>Vaadatud</button>
+                        <button onClick={() => setShowData(problemData.filter(problem => problem.approvedPriorityPrediction === -1))} className={displayButtonStyles}>Uued</button>
+                        <button onClick={() => setShowData(problemData.filter(problem => problem.approvedPriorityPrediction !== -1))} className={displayButtonStyles}>Vaadatud</button>
                     </div>
                 </div>
                 <Accordion>
@@ -135,7 +142,7 @@ export default function CustomizedAccordions() {
                 <div className="shadow-md">
                     {showData.map((problem, idx) => {
                         return (
-                            <AccordionWrapper problem={problem} idx={idx}/>
+                            <AccordionWrapper problem={problem} idx={idx} refreshData={handleRefetch}/>
                         )
                     })}
                 </div>
