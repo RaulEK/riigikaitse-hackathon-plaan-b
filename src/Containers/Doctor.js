@@ -118,7 +118,7 @@ export default function CustomizedAccordions() {
                     <DoctorSummary summary={summary}/>
                     <div className="ButtonController">
                         <button onClick={() => setShowData(problemData.filter(problem => problem.approvedPriorityPrediction === 0))} className={displayButtonStyles}>Uued</button>
-                        <button onClick={() => setShowData(problemData.filter(problem => problem.approvedPriorityPrediction === 1))} className={displayButtonStyles}>Vaadatud</button>
+                        <button onClick={() => setShowData(problemData.filter(problem => problem.approvedPriorityPrediction !== 0))} className={displayButtonStyles}>Vaadatud</button>
                     </div>
                 </div>
                 <Accordion>
