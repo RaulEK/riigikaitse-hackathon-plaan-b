@@ -124,7 +124,7 @@ export default function CustomizedAccordions() {
                 <Accordion>
                     <AccordionSummary style={{backgroundColor: "rgb(142 200 243)", fontWeight: "bold"}}
                                       aria-controls="panel1d-content" id="panel1d-header">
-                        <div className="flex w-full">
+                        <div className="flex w-full" style={{paddingRight: "48px"}}>
                             <p className={summaryElements}>Nimi</p>
                             <p className={summaryElements}>Sümptom</p>
                             <p className={summaryElements}>Esitamisest möödas</p>
