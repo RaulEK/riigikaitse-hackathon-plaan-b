@@ -12,6 +12,8 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import Popup from "reactjs-popup";
+import Snackbar from "@material-ui/core/Snackbar";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -34,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
     },
 }));
-
 
 const leftTextClasses = "text-gray-700 w-1/3 text-right pr-4";
 const rightTextClasses = "text-black w-1/2";
@@ -80,37 +81,58 @@ const renderPriorityPicker = (classes, problem) => {
     )
 };
 
-const handleDoctorConfirm = (problem, history) => {
-    const data = {
-        ...problem
-    };
-    axios.post('https://plaanb.azurewebsites.net/problem', data)
-        .then(res => {
-            history.push("/");
-        }, (error) => {
-            console.log(error);
-        });
-    history.push('/')
-};
+const RenderControlPanel = ({classes, problem, history}) => {
+    const [open, setOpen] = React.useState(false);
 
-const renderControlPanel = (classes, problem,history) => {
+    const handleClick = () => {
+        const data = {
+            ...problem
+        };
+        axios.post('https://plaanb.azurewebsites.net/problem', data)
+            .then(res => {
+                setOpen(true);
+                setTimeout(() => {
+                    history.push('/')
+                },1000)
+            }, (error) => {
+                console.log(error);
+                history.push('/')
+            });
+
+    };
     return (
         <div className="flex justify-between mt-8">
             <div className="ButtonController flex">
-                <button
+                <Popup contentStyle={{width: "400px", height: "100px", display: "flex", alignItems:"center", justifyContent:"center"}} modal trigger={<button
                     className="text-md lg:text-xl py-1 rounded bg-blue-400 text-white h-full w-24 lg:w-32 display justify-center shadow-lg hover:bg-blue-500">Vaata
                     digilugu
-                </button>
+                </button>} position="right center">
+                    <div>Digiloo avamine skoopi ei mahtunud!</div>
+                </Popup>
+
                 <button className={displayButtonStyles}><Link to="/kalender">Vaata
                     tunniplaan</Link></button>
             </div>
             <div className="flex">
                 {renderTimePicker(classes)}
                 {renderPriorityPicker(classes, problem)}
-
-                <div className="ButtonController">
-                    <button className={displayButtonStyles} onClick={() => handleDoctorConfirm(problem, history)}>Kinnita</button>
-                </div>
+            <div className="ButtonController">
+                <button className={displayButtonStyles} onClick={handleClick}>Kinnita</button>
+                <Snackbar
+                    anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                    }}
+                    ContentProps={
+                        classes= {
+                            style: {background:"green"}
+                    }
+                    }
+                    open={open}
+                    autoHideDuration={0.9}
+                    message="Kuulutus edukalt kinnitatud!"
+                />
+            </div>
             </div>
         </div>
     )
@@ -120,7 +142,6 @@ const renderControlPanel = (classes, problem,history) => {
 const AccordionWrapper = ({problem, idx}) => {
     const [expanded, setExpanded] = React.useState(null);
     let history = useHistory();
-    const [dataDisplay, setDataDisplay] = React.useState(0)
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
     };
@@ -159,7 +180,7 @@ const AccordionWrapper = ({problem, idx}) => {
                         </div>
                     </div>
                     <div className="border-t"><p>Kaebuse kirjeldus:</p><p>{problem.reason}</p></div>
-                    { renderControlPanel(classes, problem, history) }
+                    <RenderControlPanel classes={classes} problem={problem} history={history}/>
                 </div>
             </AccordionDetails>
         </Accordion>
